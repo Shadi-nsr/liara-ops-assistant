@@ -43,3 +43,12 @@ python3 -m liara_ops diagnose checkout-api --scenario high_error_rate --approve
 
 «Liara Ops کمک می‌کند اقدام درست سریع‌تر پیدا شود، بدون اینکه عامل مستقلانه زیرساخت را تغییر دهد: evidence، plan، approval و audit در یک مسیر روشن.»
 
+## اجرای همان سناریو در مرورگر
+
+برای تست انسانی رابط، بدون اتصال به حساب واقعی:
+
+```bash
+python3 -m liara_ops web --port 8123
+```
+
+سپس `http://127.0.0.1:8123` را باز کنید. از پنل سمت راست سناریو را انتخاب کنید، ابتدا evidence و plan را ببینید و فقط در صورت تأیید، دکمه‌ی ثبت `dry-run` را بزنید.
