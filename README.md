@@ -28,6 +28,9 @@ python3 -m liara_ops diagnose checkout-api --scenario high_error_rate
 
 # اجرای dry-run اقدام پیشنهادی پس از تأیید انسانی
 python3 -m liara_ops diagnose checkout-api --scenario high_error_rate --approve
+
+# رابط مرورگری محلی برای تست انسانی؛ همچنان کاملاً dry-run است
+python3 -m liara_ops web --port 8123
 ```
 
 ## چرخه‌ی عامل
@@ -49,7 +52,8 @@ python3 -m unittest discover -s tests -v
 
 - **Safety by default:** حالت پیش‌فرض فقط plan است؛ حتی با `--approve` هم اجرای این بسته dry-run باقی می‌ماند.
 - **قابل اتصال به API:** facade متدهای `plan_deploy`، `deploy`، `metrics` و `remediate` را ثابت نگه می‌دارد تا adapter رسمی بدون تغییر در planner جایگزین شود.
+- **آماده برای اتصال به سورس:** همین facade می‌تواند کنار MCP یا ایجنت کدنویسی قرار بگیرد تا پس از تشخیص، patch سورس و redeploy را هم به‌صورت plan قابل بازبینی زنجیر کند؛ نسخه‌ی فعلی عمداً فقط dry-run است.
 - **قابل توضیح:** هر finding دلیل، داده‌ی پشتیبان و اعتماد مدل را دارد.
 - **قابل بازبینی:** هر call با method، path، payload، زمان و برچسب dry-run در audit ثبت می‌شود.
 - **بازگشت‌پذیر:** actionهای پرریسک به‌صورت operation مستقل با شناسه تولید می‌شوند و قبل از ارسال قابل بازبینی‌اند.
-
+- **تست انسانی در مرورگر:** دستور `web` همان facade را در یک داشبورد RTL محلی نشان می‌دهد؛ دکمه‌ی تأیید فقط یک ثبت dry-run انجام می‌دهد.
