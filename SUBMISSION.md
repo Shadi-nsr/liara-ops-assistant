@@ -23,10 +23,10 @@
 - safety gate انسانی پیش از هر `rollback`، `restart` یا `scale`؛
 - evidence و confidence برای جلوگیری از توصیه‌های مبهم؛
 - API facade قابل اتصال به Liara بدون گره‌زدن UI به provider؛
+- seam مشخص برای اتصال به سورس‌کد و ایجنت کدنویسی، به‌طوری‌که patch و redeploy بعد از تأیید انسانی در همان زنجیره قرار بگیرد؛
 - audit log برای بازبینی تیم و postmortem؛
 - CLI دمو که در کمتر از یک دقیقه قابل اجراست.
 
 ## وضعیت پیاده‌سازی
 
 MVP در Python استاندارد، بدون dependency بیرونی، شامل مدل‌های typed، planner تشخیص incident، client امن، سناریوهای healthy/high-error/crash-loop/OOM، CLI و تست واحد است. تمام نمونه‌ها deterministic و آفلاین هستند.
-
